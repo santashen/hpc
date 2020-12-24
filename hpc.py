@@ -187,21 +187,20 @@ class Hpc:
 
     def bsub(
         self,
-        directory,
-        file,
+        work_directory,
+        submit_file,
+        software=r"/GFPS8p/caoby/shen/lammps/src/lmp_Mr_shen",
         node=3,
         processor=24,
-        software="lammps",
         job_name="lmp_Mr_shen",
     ):
         """bsub specified file"""
-        if software == "lammps":
-            message = self.run_shell(
-                "cd {};bsub -q q_x86_share -J {} -N {} -np {} -o out.log -i {}\
-               /GFPS8p/caoby/shen/lammps/src/lmp_Mr_shen -sf opt".format(
-                    directory, job_name, node, processor, file
-                )
+        message = self.run_shell(
+            "cd {};bsub -q q_x86_share -J {} -N {} -np {} -o out.log -i {}\
+           {}".format(
+                work_directory, job_name, node, processor, submit_file, software
             )
+        )
         print(
             message,
             "submitted file is :   " + os.path.join(directory, file).replace("\\", "/"),
