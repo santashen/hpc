@@ -23,18 +23,20 @@ import paramiko
 
 
 class Hpc:
-    """Interact with super computers.
+    """Interact with a server.
     
         Attributes:
             ip: ip of server
             username: account name
             passwd: account password 
+        
+        Example:
+            with Hpc(ip='1.1.1.1',username='shen','passwd'='123456') as sunway:
+                sunway.run_shell('ls')
     """
 
-    def __init__(self, ip,username,passwd):
+    def __init__(self, ip, username, passwd):
         """Specify ip,username and password for server conncection """
-
-        self.name = name
         self.ip = ip
         self.username = username
         self.passwd = passwd
