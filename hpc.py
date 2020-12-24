@@ -203,7 +203,7 @@ class Hpc:
         )
         print(
             message,
-            "submitted file is :   " + os.path.join(directory, file).replace("\\", "/"),
+            "submitted file is :   " + os.path.join(work_directory, sumbit_file).replace("\\", "/"),
             "----^w^------",
             sep="\n",
         )
